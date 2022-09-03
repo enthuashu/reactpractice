@@ -4,6 +4,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import News from "../Components/News";
+import Jokes from "../Components/Jokes";
+import MotiQuotes from "../Components/MotiQuotes";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,25 +52,30 @@ export default function BasicTabs() {
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
-          style={{ backgroundColor: "yellow" }}
+          style={{
+            backgroundColor: "yellow",
+            width: "auto",
+            padding: "5px 20px",
+            color: "white",
+          }}
           centered
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="National News" {...a11yProps(0)} />
-          <Tab label="Sports News" {...a11yProps(1)} />
-          <Tab label="Entertainment" {...a11yProps(2)} />
+          <Tab label="Latest News" {...a11yProps(0)} />
+          <Tab label="Funny Jokes" {...a11yProps(1)} />
+          <Tab label="Motivational Quotes" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        All Natioal News
+        <News />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        All Sports News
+        <Jokes />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        All Entertainment news
+        <MotiQuotes />
       </TabPanel>
     </Box>
   );
