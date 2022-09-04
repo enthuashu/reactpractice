@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import News from "../Components/News";
 import Jokes from "../Components/Jokes";
 import MotiQuotes from "../Components/MotiQuotes";
+import Form from "../Components/Form";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -66,6 +67,7 @@ export default function BasicTabs() {
           <Tab label="Latest News" {...a11yProps(0)} />
           <Tab label="Funny Jokes" {...a11yProps(1)} />
           <Tab label="Motivational Quotes" {...a11yProps(2)} />
+          <Tab label="Post Now" {...a11yProps(3)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -76,6 +78,9 @@ export default function BasicTabs() {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <MotiQuotes />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <Form />
       </TabPanel>
     </Box>
   );

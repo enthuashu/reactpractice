@@ -6,7 +6,7 @@ const Navbar = () => {
       <nav class="navbar bg-primary">
         <div class="container-fluid">
           <a style={{ color: "white" }} class="navbar-brand">
-            MERN Classes
+            THE FUN APP
           </a>
           <form class="d-flex" role="search">
             <input

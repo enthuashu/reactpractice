@@ -1,13 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import axios from "axios";
 const Jokes = () => {
+  const [jokes, setjokes] = useState([]);
+  const getjokes = async () => {
+    const response = await axios.get("/api/jokes");
+    if (response.data.success) {
+      setjokes(response.data.data);
+    }
+  };
+
+  useEffect(() => {
+    getjokes();
+  }, []);
+
   return (
     <>
-      <Card
-        headline={"Joke"}
-        title={"Joke title"}
-        description={"Any random joke"}
-      />
+      {jokes.map((candidate, i) => {
+        return (
+          <>
+            <Card
+              category={candidate.category}
+              headline={candidate.headline}
+              description={candidate.description}
+              current={i}
+            />
+          </>
+        );
+      })}
     </>
   );
 };
